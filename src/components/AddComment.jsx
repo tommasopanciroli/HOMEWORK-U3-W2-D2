@@ -8,11 +8,6 @@ const AddComment = (props) => {
     elementId: props.asin,
   })
 
-  useEffect(() => {
-    setComment({ ...comment, elementId: props.asin })
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [props.asin])
-
   const sendComment = async (e) => {
     e.preventDefault()
     try {
@@ -38,6 +33,11 @@ const AddComment = (props) => {
       alert(error)
     }
   }
+
+  useEffect(() => {
+    setComment({ ...comment, elementId: props.asin })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [props.asin])
 
   return (
     <div className="my-3">
